@@ -43,11 +43,10 @@ else:
       'HOST': 'localhost',
       'PORT': ''
     }
-    # Set debug to false
     DEBUG = False
     # Only allow the `CLIENT_ORIGIN` for CORS
     # CORS_ORIGIN_WHITELIST = [
-    #     'http://eronsalling.com'
+    #     'https://eronsalling.me'
     # ]
 
     ALLOWED_HOSTS = [os.getenv('IP'), 'localhost'] + os.getenv('DOMAINS').split(" ")
@@ -73,9 +72,9 @@ SECRET_KEY = os.getenv('SECRET')
 # Application definition
 
 INSTALLED_APPS = [
-    'frontend',
-    'projects',
-		'arcade',
+    'apps.frontend',
+    'apps.projects',
+		'apps.arcade',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,17 +117,17 @@ TEMPLATES = [
     },
 ]
 
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'TIMEOUT': None,
-        'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
-        'LOADER_CLASS': 'webpack_loader.loader.WebpackLoader',
-    }
-}
+# WEBPACK_LOADER = {
+#     'DEFAULT': {
+#         'CACHE': not DEBUG,
+#         'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
+#         'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json'),
+#         'POLL_INTERVAL': 0.1,
+#         'TIMEOUT': None,
+#         'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+#         'LOADER_CLASS': 'webpack_loader.loader.WebpackLoader',
+#     }
+# }
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
@@ -180,7 +179,7 @@ AWS_DEFAULT_ACL = 'public-read'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend/assets'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'frontend/assets'),
+# )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

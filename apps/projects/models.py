@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from portfolio.lib.parse_url import get_base_url
 
 class Tool(models.Model):
 		name = models.CharField(max_length=400)
@@ -43,6 +44,7 @@ class Project(models.Model):
 
     description = models.TextField()
     more_link = models.URLField(max_length=400, null=True, blank=True)
+    git_link = models.URLField(max_length=400, null=True, blank=True)
     # Each project can have multiple categories
     categories = models.ManyToManyField(Category, blank=True)
     # Hide in front end

@@ -1,0 +1,1 @@
+from .frontend.apps import FrontendConfig
