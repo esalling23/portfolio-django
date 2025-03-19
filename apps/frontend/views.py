@@ -7,7 +7,5 @@ from .serializers import ContentModelSerializer
 def content_index(request):
     """Index request to display content"""
     content = ContentModel.objects.first()
-    print(content)
     serializer = ContentModelSerializer(content)
-    print(serializer.data)
     return JsonResponse({ 'content': serializer.data })

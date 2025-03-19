@@ -30,7 +30,7 @@ class Scores(generics.ListCreateAPIView):
 		serializer_class = ScoreModelSerializer
 		def post(self, request):
 				"""Create request"""
-				print(request.data)
+				# print(request.data)
 				# Add user to request object
 				# request.data['score']['owner'] = request.user.id
 				# Serialize/create score
