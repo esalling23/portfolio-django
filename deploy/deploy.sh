@@ -7,10 +7,6 @@ git pull origin main
 
 pipenv shell "pipenv install && python manage.py migrate && exit"
 
-echo "Building app..." 
-cd frontend 
-npm run build
-
 cd ~/
 sudo rm -rf /var/www/eronsalling.me 
 sudo cp -rf ~/eron-salling-portfolio /var/www/eronsalling.me
