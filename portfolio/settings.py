@@ -43,11 +43,10 @@ else:
       'HOST': 'localhost',
       'PORT': ''
     }
-    # Set debug to false
     DEBUG = False
     # Only allow the `CLIENT_ORIGIN` for CORS
     # CORS_ORIGIN_WHITELIST = [
-    #     'http://eronsalling.com'
+    #     'https://eronsalling.me'
     # ]
 
     ALLOWED_HOSTS = [os.getenv('IP'), 'localhost'] + os.getenv('DOMAINS').split(" ")
@@ -73,8 +72,9 @@ SECRET_KEY = os.getenv('SECRET')
 # Application definition
 
 INSTALLED_APPS = [
-    'projects',
-		'arcade',
+    'apps.frontend',
+    'apps.projects',
+		'apps.arcade',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

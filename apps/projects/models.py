@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from portfolio.lib.parse_url import get_base_url
 
 class Tool(models.Model):
 		name = models.CharField(max_length=400)
